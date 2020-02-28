@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-
+import './start.dart';
+import './home.dart';
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -7,41 +8,15 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        title: 'Flutter layout demo',
-        theme: ThemeData.dark(),
-        home: Scaffold(
-            // appBar: AppBar(
-            //   title: Text('Flutter layout demo'),
-            // ),
-            body: Stack(
-          fit: StackFit.expand,
-          children: [
-            Container(
-                decoration: new BoxDecoration(
-                    image: new DecorationImage(
-                        image: AssetImage('assets/img/pipes.png'),
-                        repeat: ImageRepeat.repeat))),
-            // titleSection,
-            // buttonSection,
-            Column(
-              children: <Widget>[
-                Expanded(
-                    flex: 3,
-                    child: Image(image: AssetImage('assets/img/gp_logo.png'))),
-                Expanded(
-                    flex: 1,
-                    child: Column(children: [
-                      MaterialButton(
-                        color: Colors.black87,
-                        minWidth: 140.0,
-                        child: Text('Get Started'),
-                        onPressed: () {},
-                      )
-                    ]))
-              ],
-            ),
-          ],
-        )));
+      // Start the app with the "/" named route. In this case, the app starts
+      // on the FirstScreen widget.
+      initialRoute: '/',
+      routes: {
+        // When navigating to the "/" route, build the FirstScreen widget.
+        '/': (context) => Start(),
+        // When navigating to the "/second" route, build the SecondScreen widget.
+        '/home': (context) => Home(),
+      },
+    );
   }
 }
-
