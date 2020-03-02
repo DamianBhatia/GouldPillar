@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import './start.dart';
 import './home.dart';
+
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -16,6 +17,7 @@ class MyApp extends StatelessWidget {
         '/': (context) => Start(),
         // When navigating to the "/second" route, build the SecondScreen widget.
         '/home': (context) => Home(),
+
       },
     );
   }
