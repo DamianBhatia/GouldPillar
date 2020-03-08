@@ -6,7 +6,7 @@ class DetailPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final bottomContentText = Text(
-      'organization.content',
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec lacinia erat non iaculis sagittis.',
       style: TextStyle(fontSize: 18.0),
     );
     final readButton = Padding(
@@ -14,7 +14,7 @@ class DetailPage extends StatelessWidget {
         child: RaisedButton(
           onPressed: () => {},
           color: Color.fromRGBO(58, 66, 86, 1.0),
-          child: Text("BUTTON", style: TextStyle(color: Colors.white)),
+          child: Text("View Schedule", style: TextStyle(color: Colors.white)),
         ));
     final bottomContent = Container(
       // height: MediaQuery.of(context).size.height,
@@ -78,8 +78,8 @@ class DetailPage extends StatelessWidget {
                 child: Padding(
                     padding: EdgeInsets.only(left: 10.0),
                     child: Text(
-                      'organization.level',
-                      style: TextStyle(color: Colors.white),
+                      organization.location != null ? organization.location : '',
+                      style: TextStyle(color: Colors.white, fontSize: 12.0),
                     ))),
             // Expanded(flex: 1, child: coursePrice)
           ],
@@ -149,11 +149,12 @@ class ScreenArguments {
 class Organization {
   final String name;
   final String profileUrl;
+  final String location;
 
-  Organization({this.name, this.profileUrl});
+  Organization({this.name, this.profileUrl, this.location});
 
   factory Organization.fromJson(Map<String, dynamic> json) {
     debugPrint(json.toString());
-    return Organization(name: json['name'], profileUrl: json['profileUrl']);
+    return Organization(name: json['name'], profileUrl: json['profileUrl'], location: json['location']);
   }
 }

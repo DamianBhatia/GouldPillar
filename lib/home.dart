@@ -43,7 +43,8 @@ class _HomeState extends State<Home> {
       children: <Widget>[
         Scaffold(
           appBar: AppBar(
-            title: Text("Second Screen"),
+            title: Text("Nearby Non-profits"),
+            backgroundColor: Colors.black45,
           ),
           body: Center(
             child: FutureBuilder<List<Organization>>(
@@ -191,8 +192,9 @@ class ListItem extends StatelessWidget {
                           organization.name,
                         ),
                       ),
-                      Text('city'),
-                      Text('location'),
+                      Row(children:[Icon(Icons.beenhere),SizedBox(width: 5), Text('Verified')],),
+                      SizedBox(height: 5,),
+                      Text(organization.location != null ? organization.location : '', style: TextStyle(fontSize: 10.0),),
                     ],
                   ),
                 ),
